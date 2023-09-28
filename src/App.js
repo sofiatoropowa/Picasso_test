@@ -11,12 +11,6 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* <Router >
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/post/:postId" element={<Post />} />
-        </Routes>
-      </Router> */}
       <BrowserRouter basename={window.location.pathname || ''}>
         <Routes>
           <Route path="/" element={<Home />} />
