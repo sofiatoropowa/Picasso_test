@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
@@ -11,12 +11,18 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
+      {/* <Router >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/post/:postId" element={<Post />} />
         </Routes>
-      </Router>
+      </Router> */}
+      <BrowserRouter basename={window.location.pathname || ''}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/post/:postId" element={<Post />} />
+        </Routes>
+      </BrowserRouter>
     </QueryClientProvider>
   );
 }
